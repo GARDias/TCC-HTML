@@ -1,0 +1,26 @@
+<p *ngFor="let alert of message.getMessage()">
+  <ngb-alert [type]="alert.type" (close)="message.closeAlert(alert)">{{ alert.text }}</ngb-alert>
+</p>
+
+<div class="row">
+  <div class="col-lg-12">
+    <button class="btn btn-primary pull-right" type="button" [routerLink]="['./create']">Novo</button>
+  </div>
+  <data-grid *ngIf="list; let list" [data]="list" [itensPorPagina]="[5, 20, 100]" [size]="5">
+    <data-coluna title="Cpf" field="cpf" width="10%"></data-coluna>
+    <data-coluna title="Nome" field="nome" width="20%"></data-coluna>
+    <data-coluna title="E-mail" field="email" width="20%"></data-coluna>
+    <data-coluna title="Cep" width="20%">
+      <ng-template #textTemplate let-row="row" let-value="value" let-index="index" let-formatter="formatter">
+        {{row.endereco ? row.endereco.cep : ''}}
+      </ng-template>
+    </data-coluna>
+    <data-coluna title="Opções" width="20" classth="text-center">
+      <ng-template #textTemplate let-row="row" let-value="value" let-index="index" let-formatter="formatter">
+        <a class="btn btn-primary" [routerLink]="['./edit/', row.cpf]" role="button"><i class="fa fa-pencil"></i></a>
+        &nbsp;
+        <a class="btn btn-danger" (click)="acaoDeletar(row.cpf)" role="button"><i class="fa fa-trash"></i></a>
+      </ng-template>
+    </data-coluna>
+  </data-grid>
+</div>

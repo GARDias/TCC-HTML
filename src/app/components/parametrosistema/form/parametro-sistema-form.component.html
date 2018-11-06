@@ -1,0 +1,158 @@
+<div class="content-inner active">
+  <!-- Page Header-->
+  <header class="page-header">
+    <div class="container-fluid">
+      <h2 class="no-margin-bottom">Parâmetros Gerais do Sistema</h2>
+    </div>
+  </header>
+
+  <section class="dashboard-counts no-padding-bottom">
+
+    <form [formGroup]="form" (submit)="concluir()">
+
+      <div class="container-fluid">
+        <div class="" style="min-height: 500px;">
+
+          <div id="accordion">
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="collapse-title-invepar" data-toggle="" href="">Cadastrar
+                </h3>
+              </div>
+              <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                      <div class="form-group">
+                        <label for="Concessao">* Concessão</label>
+                        <select formControlName="concessao" class="form-control" required id="Concessao">
+                          <option value="">Selecione</option>
+                          <option value="1">Ecovias</option>
+                          <option value="2">Triângulo do Sol</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                      <div class="form-check form-check-inline">
+                        <label class="control-label label-blank-invepar" for="">&nbsp;</label>
+
+                        <input class="check-input-inline-invepar" type="checkbox" id="Ativo" value="option1">
+
+                        <label for="Ativo" class="control-label">Ativo&nbsp;</label>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                      <div class="form-group">
+                        <label for="Grupo">* Grupo</label>
+                        <input formControlName="grupo" type="text" required class="form-control" maxlength="50" id="Grupo"
+                          placeholder="Grupo">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="clearfix">&nbsp;</div>
+
+                  <div class="clearfix">&nbsp;</div>
+
+                  <fieldset class="fieldset-invepar">
+                    <legend class="legend-fieldset-invepar">Parâmetros</legend>
+
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+
+                        <button (click)="adicionarLinha()"
+                          class="btn btn-primary btn-block" 
+                          type="button"
+                          data-toggle="modal" data-target="#gerenciarPergunta">Adicionar Parâmetros</button>
+                      </div>
+                    </div>
+
+                    <div class="clearfix">&nbsp;</div>
+
+                    <table id="TabelaResultado" class="table table-hover table-responsive">
+                      <thead>
+                        <tr>
+                          <th width="50%">Descrição</th>
+                          <th width="30%">Sigla</th>
+                          <th width="10%">Valor</th>
+                          <th width="10%">Ativo</th>
+                          <th width="10%">Opções</th>
+                        </tr>
+                      </thead>
+
+                      <tbody formArrayName="parametros">
+
+                        <tr [formGroupName]="i"
+                            *ngFor="let formGroup of form.get('parametros').controls; let i = index;">
+
+                          <ng-container *ngIf="formGroup.get('editando').value">
+                          
+                            <td>
+                              <input formControlName="descricao" type="text" 
+                                required class="form-control" maxlength="50"
+                                id="Descrição" placeholder="Descrição">
+                            </td>
+
+                            <td >
+                              <input formControlName="sigla"
+                                type="text" required class="form-control" maxlength="50" id="sigla" 
+                                placeholder="Sigla">
+                            </td>
+                          
+                            <td >
+                              <input formControlName="valor"
+                                type="text" required class="form-control" maxlength="50" id="Valor" placeholder="Valor">
+                            </td>
+                            
+                            <td >
+                              <input formControlName="ativo"
+                                class="check-input-inline-invepar" type="checkbox" id="Ativo" value="option1">
+                            </td>
+                            <td >
+                              <i class="material-icons done" (click)="salvar(formGroup)">
+                                done
+                              </i>
+                            </td>
+                          </ng-container>
+
+                          <ng-container *ngIf="!formGroup.get('editando').value">
+                              <td >{{formGroup.get('descricao').value}}</td>
+                              <td >{{formGroup.get('sigla').value}}</td>
+                              <td >{{formGroup.get('valor').value}}</td>
+                              <td >{{formGroup.get('ativo').value ? 'Sim' : 'Não'}}</td>
+                              <td >
+                                <i class="material-icons edit" (click)="editar(formGroup)">
+                                  edit
+                                </i></td>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class=" col-lg-12 text-right">
+            <button type="submit" class="btn btn-primary" id="Salvar" data-target="#modalSucesso" data-toggle="modal">Salvar
+            </button>
+            <button 
+              [routerLink]="[ '/parametrosistema' ]"
+              type="button" id="voltar" class="btn btn-secondary">Voltar</button>
+          </p>
+          <br />
+
+
+        </div>
+      </div>
+    </form>
+  </section>
+
+</div>

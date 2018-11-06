@@ -1,0 +1,183 @@
+<div class="content-inner active">
+  <!-- Page Header-->
+  <header class="page-header">
+    <div class="container-fluid">
+      <h2 class="no-margin-bottom">Parâmetros Gerais do Sistema</h2>
+    </div>
+  </header>
+
+  <section class="dashboard-counts no-padding-bottom">
+    <div class="container-fluid">
+      <div class="" style="min-height: 500px;">
+
+        <div id="accordion">
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="collapse-title-invepar" data-toggle="" href="">Filtros
+              </h3>
+            </div>
+            <div id="collapseOne" class="collapse show" data-parent="#accordion">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4">
+                    <div class="form-group">
+                      <label for="Concessao">* Concessão</label>
+                      <select class="form-control" required id="Concessao">
+                        <option value="">Selecione</option>
+                        <option value="1">Ecovias</option>
+                        <option value="2">Triângulo do Sol</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label for="Descricao">* Grupo</label>
+                      <input type="text" required class="form-control" maxlength="50" id="Descricao" placeholder="Descrição">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label for="Status">* Status</label>
+                      <select class="form-control" required id="Status">
+                        <option value="">Selecione</option>
+                        <option value="1">Ativo/option>
+                        <option value="2">Inativo</option>
+                      </select>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="row">
+
+                  <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label for="DescricaoP">* Descrição do Parâmetro</label>
+                      <input type="text" required class="form-control" maxlength="50" id="DescricaoP" placeholder="Descrição">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label for="SiglaP">* Sigla do Parâmetro</label>
+                      <input type="text" required class="form-control" maxlenght="10" id="SiglaP" placeholder="Sigla">
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                      <label for="ValorP">* Valor do Parâmetro</label>
+                      <input type="text" required class="form-control" maxlenght="10" id="ValorP" placeholder="Valor">
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+        <p class=" col-lg-12 text-right">
+          <button type="button" id="consultar" class="btn btn-primary" data-target="#modalSucesso" data-toggle="modal">Consultar
+          </button>
+          <button [routerLink]="[ '/parametrosistema/create' ]"
+            type="button" id="incluir" class="btn btn-secondary">
+            Incluir
+          </button>
+        </p>
+        <br />
+        <div class="row">
+          <div class="col-lg-9 col-md-8 col-sm-8"></div>
+          <div class="col-lg-3 col-md-3 col-sm-3 text-right">
+            <img src="img/if_pdfs_774684.png" title="Exportar para PDF" class="icone_export" alt="">
+
+            <img src="img/if_xlss_774679.png" title="Exportar para XLS" class="icone_export" alt="">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+            <fieldset class="fieldset-invepar">
+              <legend class="legend-fieldset-invepar">Grupos</legend>
+              <table id="TabelaResultado" class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Concessão</th>
+                    <th>Grupo</th>
+
+                    <th>Status</th>
+                    <th width="15%">Opções</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>Lorem Ipsum</td>
+
+                    <td>Inativo</td>
+                    <td class="text-center">
+                      <i class="material-icons edit">
+                        edit
+                      </i>
+                      <i class="material-icons delete">
+                        delete
+                      </i>
+
+
+
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </fieldset>
+          </div>
+
+
+          <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+            <fieldset class="fieldset-invepar">
+              <legend class="legend-fieldset-invepar">Parâmetros</legend>
+              <span class="span-invepar">Grupo: Grupo X</span>
+              <table id="TabelaResultado" class="table table-hover table-responsive">
+                <thead>
+                  <tr>
+                    <th width="60%">Descrição</th>
+                    <th width="30%">Sigla</th>
+                    <th>Valor</th>
+                    <th>Ativo</th>
+
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Lorem Ipsum</td>
+                    <td>Lorem Ipsum</td>
+                    <td>Lorem</td>
+                    <td>Lorem</td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
